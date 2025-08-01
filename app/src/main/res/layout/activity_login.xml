@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <!-- Wrapper ngang để canh giữa và chia tỷ lệ 90% -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng Nhập"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/black"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:minHeight="40dp"
+                android:textSize="14sp"
+                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Mật khẩu"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:minHeight="40dp"
+                android:textSize="14sp"
+                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:minHeight="40dp"
+                android:text="Đăng Nhập"
+                android:textSize="14sp"
+                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:text="Đăng Ký"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
