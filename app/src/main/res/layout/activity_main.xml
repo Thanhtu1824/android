@@ -9,37 +9,32 @@
     android:gravity="center"
     android:background="#ffffff">
 
-    <!-- Bao ngoài để canh giữa và điều khiển tỷ lệ chiều ngang -->
+    <!-- Layout con chiếm 90% chiều ngang -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:layout_weight="0.9"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        tools:ignore="InefficientWeight,Suspicious0dp,TextSizeCheck,UselessParent">
 
-        <!-- Layout con chiếm 90% chiều ngang -->
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/txtHome"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.9"
-            android:orientation="vertical"
-            tools:ignore="TextSizeCheck,UselessParent">
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="dsdsd"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="Đã đăng nhập thành công!"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/btnBack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Đăng xuất"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đăng xuất"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
+
 </LinearLayout>

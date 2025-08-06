@@ -3,6 +3,8 @@ package com.luongthanhtu.android;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,16 +29,30 @@ public class LoginActivity extends AppCompatActivity {
 
         // Gán nút Đăng nhập
         Button btnLogin = findViewById(R.id.btnLogin);
+        // Bắt sự kiện đăng nhập
+        btnLogin.setOnClickListener(v -> {
+
+            EditText ojbUsername = findViewById(R.id.txtUsername);
+            String username = ojbUsername.getText().toString();
+
+            EditText ojbPassword = findViewById(R.id.txtPassword);
+            String txtPassword = ojbPassword.getText().toString();
+
+            if (username.equals("thanhtu") && txtPassword.equals("123"))
+            {
+                Intent it = new Intent(LoginActivity.this, MainActivity.class);
+                it.putExtra("username", username); // Gửi username sang MainActivity
+                startActivity(it);
+                finish(); // Đóng màn hình Login để không quay lại
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Login Fail", Toast.LENGTH_SHORT).show();
+            }
+
+        });
 
         // Gán nút Đăng ký nếu có
         Button btnRegister = findViewById(R.id.btnRegister);  // ❗ Nếu chưa có thì tạo trong XML
-
-        // Bắt sự kiện đăng nhập
-        btnLogin.setOnClickListener(v -> {
-            Intent it = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(it);
-        });
-
         // Bắt sự kiện đăng ký
         btnRegister.setOnClickListener(v -> {
             Intent it = new Intent(LoginActivity.this, RegisterActivity.class);
