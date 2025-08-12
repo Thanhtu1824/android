@@ -5,88 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:gravity="center"
+    android:padding="16dp"
     android:background="#FFFFFF">
 
-    <!-- Wrapper ngang để canh giữa và chia tỷ lệ 90% -->
+    <!-- Form căn giữa, có margin 10% mỗi bên -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        tools:ignore="DisableBaselineAlignment,UselessParent">
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
+            android:text="Đăng Nhập"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đăng Nhập"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="center_horizontal"
-                tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/txtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Tên đăng nhập"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TextFields,VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/txtUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp"
-                android:hint="Tên Đăng Nhập"
-                android:minHeight="40dp"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                tools:ignore="Autofill,HardcodedText,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/txtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:hint="Mật khẩu"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:minHeight="40dp"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:minHeight="48dp"
+            android:text="Đăng Nhập"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,DuplicateSpeakableTextCheck,VisualLintButtonSize" />
 
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="12dp"
-                android:minHeight="40dp"
-                android:text="Đăng Nhập"
-                android:textSize="14sp"
-                tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Đăng Ký"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
 
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:minHeight="40dp"
-                android:text="Đăng Ký"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
-
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -32,39 +32,42 @@
         android:textColor="@color/black"
         android:minHeight="48dp"
         android:layout_marginTop="24dp"
+        android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/tvRegisterTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.9"
-        tools:ignore="Autofill,HardcodedText,TextFields,VisualLintTextFieldSize" />
-
-    <EditText
-        android:id="@+id/txtNumphone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Số Điện Thoại"
-        android:minHeight="48dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtEmail"
-        app:layout_constraintWidth_percent="0.9"
-        tools:ignore="Autofill,DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck,TextFields,VisualLintTextFieldSize" />
+        tools:ignore="Autofill,HardcodedText" />
 
     <EditText
         android:id="@+id/txtUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Tên Đăng Nhập"
+        android:hint="Tên đăng nhập"
+        android:inputType="text"
         android:minHeight="48dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNumphone"
+        app:layout_constraintTop_toBottomOf="@id/txtEmail"
         app:layout_constraintWidth_percent="0.9"
-        tools:ignore="Autofill,HardcodedText,TextContrastCheck,TextFields,VisualLintTextFieldSize" />
+        tools:ignore="Autofill,HardcodedText,TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/txtPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Số điện thoại"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtUsername"
+        app:layout_constraintWidth_percent="0.9"
+        tools:ignore="Autofill,HardcodedText" />
 
     <EditText
         android:id="@+id/txtPassword"
@@ -75,11 +78,26 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/txtUsername"
+        app:layout_constraintTop_toBottomOf="@id/txtPhone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.9"
-        tools:ignore="Autofill,HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
+        tools:ignore="Autofill,HardcodedText" />
+
+    <EditText
+        android:id="@+id/txtConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Xác nhận mật khẩu"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPassword"
+        app:layout_constraintWidth_percent="0.9"
+        tools:ignore="Autofill,HardcodedText,TextContrastCheck" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -87,10 +105,23 @@
         android:layout_height="wrap_content"
         android:text="Đăng ký"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/txtPassword"
+        app:layout_constraintTop_toBottomOf="@id/txtConfirmPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.9"
-        tools:ignore="HardcodedText,VisualLintButtonSize" />
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvGoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã có tài khoản? Đăng nhập"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btnRegister"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
