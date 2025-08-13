@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="#ffffff">
+    tools:ignore="VisualLintBounds">
 
-    <!-- Layout con chiếm 90% chiều ngang -->
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tvGreeting"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.9"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        tools:ignore="InefficientWeight,Suspicious0dp,TextSizeCheck,UselessParent">
+        android:text="Xin chào"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp"
+        tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/txtHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="dsdsd"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng xuất"
+        android:layout_marginBottom="16dp"
+        tools:ignore="HardcodedText" />
 
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đăng xuất"
-            tools:ignore="HardcodedText" />
-    </LinearLayout>
-
+    <!-- Thêm ListView -->
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

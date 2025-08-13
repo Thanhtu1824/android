@@ -9,7 +9,7 @@
     android:padding="16dp"
     android:background="#FFFFFF">
 
-    <!-- Form căn giữa, có margin 10% mỗi bên -->
+    <!-- Form căn giữa -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@android:drawable/edit_text"
             android:hint="Mật khẩu"
             android:inputType="textPassword"
@@ -57,24 +57,65 @@
             android:textSize="14sp"
             tools:ignore="Autofill,HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:weightSum="2"
+            android:paddingHorizontal="8dp">
+
+            <TextView
+                android:id="@+id/ResetPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Đổi Mật Khẩu"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/txtForgotPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Quên mật khẩu?"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+        </LinearLayout>
+
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
+            android:backgroundTint="#FF5722"
             android:minHeight="48dp"
             android:text="Đăng Nhập"
             android:textSize="16sp"
-            tools:ignore="HardcodedText,DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+            tools:ignore="HardcodedText,DuplicateSpeakableTextCheck,VisualLintButtonSize,TextContrastCheck" />
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FF5722"
             android:minHeight="48dp"
             android:text="Đăng Ký"
             android:textSize="16sp"
-            tools:ignore="HardcodedText,VisualLintButtonSize" />
+            tools:ignore="HardcodedText,VisualLintButtonSize,TextContrastCheck" />
 
     </LinearLayout>
 </LinearLayout>
