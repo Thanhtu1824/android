@@ -1,6 +1,7 @@
 package com.luongthanhtu.android;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
@@ -33,8 +36,28 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        holder.textView.setText(productList.get(position));
-        holder.imageView.setImageResource(productIcons[position % productIcons.length]);
+        String productName = productList.get(position);
+        int productImage = productIcons[position % productIcons.length];
+
+        holder.textView.setText(productName);
+        holder.imageView.setImageResource(productImage);
+
+        // 🆕 Click vào sản phẩm -> mở ProductDetailActivity
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetailActivity.class);
+            intent.putExtra("name", productName);
+            intent.putExtra("image", productImage);
+
+            // Tạo giá tự động theo ví dụ
+            int price = (position + 1) * 1000000;
+            String priceStr = NumberFormat.getNumberInstance(new Locale("vi", "VN")).format(price);
+            intent.putExtra("price", "Giá: " + priceStr + " đ");
+
+            // Tạo mô tả tự động theo tên sản phẩm
+            intent.putExtra("description", "Mô tả chi tiết sản phẩm " + productName);
+
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -42,7 +65,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productList.size();
     }
 
-    // 🆕 Hàm để cập nhật danh sách khi tìm kiếm
+    // Cập nhật danh sách sản phẩm (dùng cho tìm kiếm)
     public void updateData(List<String> newList) {
         this.productList = newList;
         notifyDataSetChanged();

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
     <!-- Tiêu đề -->
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Giỏ hàng của bạn"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
@@ -20,6 +22,7 @@
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:textColor="@color/black"
         android:layout_weight="1"
         android:scrollbars="vertical"/>
 
@@ -28,5 +31,7 @@
         android:id="@+id/btnCheckout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thanh toán" />
+        android:textColor="@color/black"
+        android:text="Thanh toán"
+        android:backgroundTint="@color/blue"/>
 </LinearLayout>

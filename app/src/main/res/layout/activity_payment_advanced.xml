@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phương thức thanh toán"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"
+            tools:ignore="HardcodedText" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbFullPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Thanh toán toàn bộ"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/rbInstallment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Trả góp"
+                tools:ignore="HardcodedText" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền: 0 đ"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Số tháng:"
+                android:paddingEnd="8dp"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+
+            <Spinner
+                android:id="@+id/spinnerMonths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvMonthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:paddingTop="8dp"/>
+
+        <!-- EditText Địa chỉ -->
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border_shape"
+            android:hint="Địa chỉ giao hàng"
+            android:importantForAutofill="no"
+            android:inputType="textPostalAddress"
+            android:padding="8dp"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+
+        <!-- EditText Số điện thoại -->
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border_shape"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:padding="8dp"
+            tools:ignore="Autofill,HardcodedText,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/btnPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/blue"
+            android:text="Thanh toán"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
+    </LinearLayout>
+</ScrollView>
