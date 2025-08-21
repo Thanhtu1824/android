@@ -11,20 +11,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.NumberFormat;
+import com.bumptech.glide.Glide;
+import com.luongthanhtu.android.model.ProductItem;
+
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    private Context context;
-    private List<String> productList;
-    private int[] productIcons;
+    private final Context context;
+    private List<ProductItem> productList = new ArrayList<>();
 
-    public ProductAdapter(Context context, List<String> productList, int[] productIcons) {
+    // Constructor
+    public ProductAdapter(Context context, List<ProductItem> productList) {
         this.context = context;
-        this.productList = productList;
-        this.productIcons = productIcons;
+        if (productList != null) {
+            this.productList = productList;
+        }
     }
 
     @NonNull
@@ -36,49 +39,53 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        String productName = productList.get(position);
-        int productImage = productIcons[position % productIcons.length];
+        ProductItem product = productList.get(position);
 
-        holder.textView.setText(productName);
-        holder.imageView.setImageResource(productImage);
+        // Set text
+        holder.textName.setText(product.name != null ? product.name : "No name");
+        holder.textPrice.setText(product.price != null ? product.price : "0");
 
-        // 🆕 Click vào sản phẩm -> mở ProductDetailActivity
+        // Load ảnh từ URL bằng Glide
+        Glide.with(context)
+                .load(product.imageUrl) // dùng field "image" trong ProductItem (URL từ MockAPI)
+                .placeholder(R.drawable.ic_launcher_background) // ảnh tạm
+                .error(R.drawable.ic_launcher_background)       // ảnh lỗi
+                .into(holder.imageView);
+
+        // Click vào sản phẩm -> mở ProductDetailActivity
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductDetailActivity.class);
-            intent.putExtra("name", productName);
-            intent.putExtra("image", productImage);
-
-            // Tạo giá tự động theo ví dụ
-            int price = (position + 1) * 1000000;
-            String priceStr = NumberFormat.getNumberInstance(new Locale("vi", "VN")).format(price);
-            intent.putExtra("price", "Giá: " + priceStr + " đ");
-
-            // Tạo mô tả tự động theo tên sản phẩm
-            intent.putExtra("description", "Mô tả chi tiết sản phẩm " + productName);
-
+            intent.putExtra("name", product.name);
+            intent.putExtra("price", product.price);
+            intent.putExtra("description", product.description);
+            intent.putExtra("imageUrl", product.imageUrl); // truyền URL ảnh
             context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return productList != null ? productList.size() : 0;
     }
 
-    // Cập nhật danh sách sản phẩm (dùng cho tìm kiếm)
-    public void updateData(List<String> newList) {
-        this.productList = newList;
-        notifyDataSetChanged();
+    // Cập nhật dữ liệu khi load API xong
+    public void updateData(List<ProductItem> newList) {
+        if (newList != null) {
+            this.productList = newList;
+            notifyDataSetChanged();
+        }
     }
 
+    // ViewHolder
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView textView;
+        TextView textName, textPrice;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.productImage);
-            textView = itemView.findViewById(R.id.productName);
+            textName = itemView.findViewById(R.id.productName);
+            textPrice = itemView.findViewById(R.id.productPrice);
         }
     }
 }

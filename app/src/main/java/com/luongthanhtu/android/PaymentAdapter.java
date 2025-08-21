@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.luongthanhtu.android.model.ProductItem;
 
 import java.util.List;
@@ -34,7 +35,11 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
         holder.tvName.setText(item.name);
         holder.tvPrice.setText(item.price);
         holder.tvQuantity.setText("Số lượng: " + item.quantity);
-        holder.img.setImageResource(item.image);
+
+        // Load ảnh từ URL thay vì resource
+        Glide.with(holder.img.getContext())
+                .load(item.imageUrl)
+                .into(holder.img);
     }
 
     @Override

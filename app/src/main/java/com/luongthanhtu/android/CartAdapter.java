@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.luongthanhtu.android.model.ProductItem;
 
@@ -44,7 +45,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.tvName.setText(item.name);
         holder.tvPrice.setText(item.price);
         holder.tvQuantity.setText(String.valueOf(item.quantity));
-        holder.img.setImageResource(item.image);
+
+        // ✅ Load ảnh từ URL bằng Glide
+        Glide.with(context)
+                .load(item.imageUrl) // link ảnh từ ProductItem
+                .into(holder.img);
 
         // Tăng số lượng
         holder.btnIncrease.setOnClickListener(v -> {

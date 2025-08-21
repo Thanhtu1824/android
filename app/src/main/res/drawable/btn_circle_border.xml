@@ -1,6 +1,15 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="@android:color/white"/> <!-- nền trắng -->
-    <stroke android:width="2dp" android:color="#000000"/> <!-- viền đen -->
-    <corners android:radius="20dp"/> <!-- bo tròn -->
-</shape>
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="#DDDDDD"/>
+            <stroke android:width="2dp" android:color="@android:color/black"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/white"/>
+            <stroke android:width="2dp" android:color="@android:color/black"/>
+        </shape>
+    </item>
+</selector>

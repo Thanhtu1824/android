@@ -37,6 +37,10 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
 
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.volley)
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
     // Retrofit (Kotlin DSL string syntax)
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")

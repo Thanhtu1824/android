@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Ảnh sản phẩm -->
         <ImageView
             android:id="@+id/imgProduct"
             android:layout_width="match_parent"
@@ -19,6 +20,7 @@
             android:src="@drawable/ic_launcher_background"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
+        <!-- Tên sản phẩm -->
         <TextView
             android:id="@+id/tvProductName"
             android:layout_width="wrap_content"
@@ -30,6 +32,7 @@
             android:paddingTop="8dp"
             tools:ignore="HardcodedText" />
 
+        <!-- Giá sản phẩm -->
         <TextView
             android:id="@+id/tvProductPrice"
             android:layout_width="wrap_content"
@@ -40,6 +43,7 @@
             android:paddingTop="4dp"
             tools:ignore="HardcodedText" />
 
+        <!-- Mô tả sản phẩm -->
         <TextView
             android:id="@+id/tvProductDescription"
             android:layout_width="wrap_content"
@@ -50,6 +54,7 @@
             android:paddingTop="8dp"
             tools:ignore="HardcodedText" />
 
+        <!-- Nút thêm vào giỏ -->
         <Button
             android:id="@+id/btnAddToCart"
             android:layout_width="match_parent"
@@ -59,6 +64,26 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/blue"
             tools:ignore="HardcodedText,VisualLintButtonSize" />
-    </LinearLayout>
 
+        <!-- Tiêu đề sản phẩm khác -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sản phẩm khác"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingTop="24dp"
+            tools:ignore="HardcodedText" />
+
+        <!-- Danh sách sản phẩm khác -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOtherProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
+            tools:listitem="@layout/item_product" />
+
+    </LinearLayout>
 </ScrollView>

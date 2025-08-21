@@ -1,5 +1,6 @@
 package com.luongthanhtu.android.api;
 
+import com.luongthanhtu.android.model.ProductItem;
 import com.luongthanhtu.android.model.User;
 import java.util.List;
 
@@ -18,5 +19,8 @@ public interface ApiService {
     // Cập nhật thông tin user
     @PUT("users/{id}")
     Call<User> updateUser(@Path("id") String id, @Body User user);
+
+    @GET("products") // mockapi resource
+    Call<List<ProductItem>> getProducts();
 
 }

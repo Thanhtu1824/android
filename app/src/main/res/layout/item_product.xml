@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:orientation="vertical"
-        android:padding="4dp"
+        android:padding="6dp"
         android:background="@drawable/item_border">
 
-        <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop" />
+    <!-- Ảnh sản phẩm -->
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
 
-        <TextView
-            android:id="@+id/productName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tên sản phẩm"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="8dp"/>
-    </LinearLayout>
+    <!-- Tên sản phẩm -->
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên sản phẩm"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginTop="6dp"
+        android:maxLines="2"
+        android:ellipsize="end" />
 
+    <!-- Giá sản phẩm -->
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5.000.000 đ"
+        android:textColor="@color/blue"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginTop="2dp" />
 
 </LinearLayout>
+
+    </LinearLayout>

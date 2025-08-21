@@ -3,6 +3,7 @@ package com.luongthanhtu.android;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -40,6 +41,16 @@ public class CartActivity extends AppCompatActivity {
         Type type = new TypeToken<List<ProductItem>>() {}.getType();
         cartList = jsonCart != null ? gson.fromJson(jsonCart, type) : new ArrayList<>();
 
+        // ✅ Debug log để kiểm tra imageUrl
+        Log.d("CartActivity", "Cart JSON: " + jsonCart);
+        for (ProductItem p : cartList) {
+            Log.d("CartActivity", "Item: " + p.name + " | Image: " + p.imageUrl);
+            // Nếu thiếu imageUrl thì gán tạm link test
+            if (p.imageUrl == null || p.imageUrl.isEmpty()) {
+                p.imageUrl = "https://i.imgur.com/tGbaZCY.jpg";
+            }
+        }
+
         // Khởi tạo RecyclerView và adapter
         cartAdapter = new CartAdapter(this, cartList);
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(this));
@@ -67,6 +78,15 @@ public class CartActivity extends AppCompatActivity {
         if (jsonCart != null) {
             cartList.addAll(gson.fromJson(jsonCart, type));
         }
+
+        // ✅ Debug lại sau khi resume
+        for (ProductItem p : cartList) {
+            Log.d("CartActivity", "Resume item: " + p.name + " | Image: " + p.imageUrl);
+            if (p.imageUrl == null || p.imageUrl.isEmpty()) {
+                p.imageUrl = "https://i.imgur.com/tGbaZCY.jpg";
+            }
+        }
+
         cartAdapter.notifyDataSetChanged();
     }
 }
